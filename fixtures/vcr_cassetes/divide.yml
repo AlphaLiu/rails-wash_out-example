@@ -1,0 +1,214 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3000/calculator/wsdl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - text/xml; charset=utf-8
+      Etag:
+      - '"c761e30a4aa50f0c01813ff9efe18914"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a1846256-77eb-4fe9-8912-157fbbbc78f6
+      X-Runtime:
+      - '0.008790'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+      Date:
+      - Fri, 30 May 2014 21:47:29 GMT
+      Content-Length:
+      - '3822'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - request_method=GET; path=/
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="urn:WashOut" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="calculator" targetNamespace="urn:WashOut">
+          <types>
+            <schema targetNamespace="urn:WashOut" xmlns="http://www.w3.org/2001/XMLSchema">
+            </schema>
+          </types>
+          <portType name="calculator_port">
+            <operation name="sum">
+              <input message="tns:sum"/>
+              <output message="tns:sum_response"/>
+            </operation>
+            <operation name="substract">
+              <input message="tns:substract"/>
+              <output message="tns:substract_response"/>
+            </operation>
+            <operation name="multiply">
+              <input message="tns:multiply"/>
+              <output message="tns:multiply_response"/>
+            </operation>
+            <operation name="divide">
+              <input message="tns:divide"/>
+              <output message="tns:divide_response"/>
+            </operation>
+          </portType>
+          <binding name="calculator_binding" type="tns:calculator_port">
+            <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+            <operation name="sum">
+              <soap:operation soapAction="sum"/>
+              <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOut"/>
+              </input>
+              <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOut"/>
+              </output>
+            </operation>
+            <operation name="substract">
+              <soap:operation soapAction="substract"/>
+              <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOut"/>
+              </input>
+              <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOut"/>
+              </output>
+            </operation>
+            <operation name="multiply">
+              <soap:operation soapAction="multiply"/>
+              <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOut"/>
+              </input>
+              <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOut"/>
+              </output>
+            </operation>
+            <operation name="divide">
+              <soap:operation soapAction="divide"/>
+              <input>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOut"/>
+              </input>
+              <output>
+                <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOut"/>
+              </output>
+            </operation>
+          </binding>
+          <service name="service">
+            <port name="calculator_port" binding="tns:calculator_binding">
+              <soap:address location="http://localhost:3000/calculator/action"/>
+            </port>
+          </service>
+          <message name="sum">
+            <part name="a" type="xsd:int"/>
+            <part name="b" type="xsd:int"/>
+          </message>
+          <message name="sum_response">
+            <part name="value" type="xsd:int"/>
+          </message>
+          <message name="substract">
+            <part name="a" type="xsd:int"/>
+            <part name="b" type="xsd:int"/>
+          </message>
+          <message name="substract_response">
+            <part name="value" type="xsd:int"/>
+          </message>
+          <message name="multiply">
+            <part name="a" type="xsd:int"/>
+            <part name="b" type="xsd:int"/>
+          </message>
+          <message name="multiply_response">
+            <part name="value" type="xsd:int"/>
+          </message>
+          <message name="divide">
+            <part name="a" type="xsd:int"/>
+            <part name="b" type="xsd:int"/>
+          </message>
+          <message name="divide_response">
+            <part name="value" type="xsd:int"/>
+          </message>
+        </definitions>
+    http_version: 
+  recorded_at: Fri, 30 May 2014 21:47:29 GMT
+- request:
+    method: post
+    uri: http://localhost:3000/calculator/action
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="urn:WashOut"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:divide><a>12</a><b>4</b></tns:divide></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"divide"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '307'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      Content-Type:
+      - text/xml; charset=utf-8
+      Etag:
+      - '"05e27e5f2c533c100a4f3cb4924f87dd"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 28636867-9793-4f40-be1f-c911713ba04a
+      X-Runtime:
+      - '0.007525'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+      Date:
+      - Fri, 30 May 2014 21:47:29 GMT
+      Content-Length:
+      - '374'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - request_method=POST; path=/
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0" encoding="UTF-8"?>
+        <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="urn:WashOut">
+          <soap:Body>
+            <tns:divide_response>
+              <value xsi:type="xsd:int">3</value>
+            </tns:divide_response>
+          </soap:Body>
+        </soap:Envelope>
+    http_version: 
+  recorded_at: Fri, 30 May 2014 21:47:29 GMT
+recorded_with: VCR 2.9.2
