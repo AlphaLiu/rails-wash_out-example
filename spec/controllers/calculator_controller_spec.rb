@@ -3,7 +3,7 @@ require 'savon'
 
 describe CalculatorController do
   before do
-    @client = Savon.client(wsdl: "http://localhost:3000/calculator/wsdl")
+    @client = Savon.client(wsdl: "http://192.241.246.59:3000/calculator/wsdl")
   end
 
   it "should responde with 4 operations" do

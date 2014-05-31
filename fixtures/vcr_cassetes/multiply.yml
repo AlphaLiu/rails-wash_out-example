@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://localhost:3000/calculator/wsdl
+    uri: http://192.241.246.59:3000/calculator/wsdl
     body:
       encoding: US-ASCII
       string: ''
@@ -16,34 +16,38 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 'OK '
+      message: OK
     headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
-      Content-Type:
-      - text/xml; charset=utf-8
       Etag:
-      - '"c761e30a4aa50f0c01813ff9efe18914"'
+      - '"35c36342d7cba791a80b4348e7f0fcef"'
       Cache-Control:
       - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 3dfa4747-5ae0-4a95-8e79-8f0bf5671b9c
-      X-Runtime:
-      - '0.011636'
-      Server:
-      - WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
-      Date:
-      - Fri, 30 May 2014 21:47:29 GMT
-      Content-Length:
-      - '3822'
-      Connection:
-      - Keep-Alive
       Set-Cookie:
       - request_method=GET; path=/
+      X-Request-Id:
+      - ca30209e-6cb7-4162-85ea-729aff432e8e
+      X-Runtime:
+      - '0.022092'
+      X-Powered-By:
+      - Phusion Passenger 4.0.44
+      Date:
+      - Sat, 31 May 2014 02:46:26 GMT
+      Server:
+      - nginx/1.6.0 + Phusion Passenger 4.0.44
     body:
       encoding: UTF-8
       string: |
@@ -112,7 +116,7 @@ http_interactions:
           </binding>
           <service name="service">
             <port name="calculator_port" binding="tns:calculator_binding">
-              <soap:address location="http://localhost:3000/calculator/action"/>
+              <soap:address location="http://192.241.246.59:3000/calculator/action"/>
             </port>
           </service>
           <message name="sum">
@@ -145,10 +149,10 @@ http_interactions:
           </message>
         </definitions>
     http_version: 
-  recorded_at: Fri, 30 May 2014 21:47:29 GMT
+  recorded_at: Sat, 31 May 2014 02:46:27 GMT
 - request:
     method: post
-    uri: http://localhost:3000/calculator/action
+    uri: http://192.241.246.59:3000/calculator/action
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -170,34 +174,38 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 'OK '
+      message: OK
     headers:
+      Content-Type:
+      - text/xml; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
-      Content-Type:
-      - text/xml; charset=utf-8
       Etag:
       - '"2ae1744de13a168c55ffce04118e63c0"'
       Cache-Control:
       - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - e798822f-d823-4afa-9dd1-917bec63aea1
-      X-Runtime:
-      - '0.006669'
-      Server:
-      - WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
-      Date:
-      - Fri, 30 May 2014 21:47:29 GMT
-      Content-Length:
-      - '378'
-      Connection:
-      - Keep-Alive
       Set-Cookie:
       - request_method=POST; path=/
+      X-Request-Id:
+      - 1082d679-6cfb-4884-a4e4-2d4254da84e9
+      X-Runtime:
+      - '0.012228'
+      X-Powered-By:
+      - Phusion Passenger 4.0.44
+      Date:
+      - Sat, 31 May 2014 02:46:27 GMT
+      Server:
+      - nginx/1.6.0 + Phusion Passenger 4.0.44
     body:
       encoding: UTF-8
       string: |
@@ -210,5 +218,5 @@ http_interactions:
           </soap:Body>
         </soap:Envelope>
     http_version: 
-  recorded_at: Fri, 30 May 2014 21:47:29 GMT
+  recorded_at: Sat, 31 May 2014 02:46:28 GMT
 recorded_with: VCR 2.9.2
