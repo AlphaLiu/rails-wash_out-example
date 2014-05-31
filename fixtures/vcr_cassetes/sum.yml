@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://192.241.246.59:3000/calculator/wsdl
+    uri: http://localhost:3000/calculator/wsdl
     body:
       encoding: US-ASCII
       string: ''
@@ -16,38 +16,34 @@ http_interactions:
   response:
     status:
       code: 200
-      message: OK
+      message: 'OK '
     headers:
-      Content-Type:
-      - text/xml; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Status:
-      - 200 OK
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
+      Content-Type:
+      - text/xml; charset=utf-8
       Etag:
-      - '"35c36342d7cba791a80b4348e7f0fcef"'
+      - '"c761e30a4aa50f0c01813ff9efe18914"'
       Cache-Control:
       - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 308fc215-36ce-4be3-8e17-cc033714b9c8
+      X-Runtime:
+      - '0.008808'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+      Date:
+      - Sat, 31 May 2014 03:04:13 GMT
+      Content-Length:
+      - '3822'
+      Connection:
+      - Keep-Alive
       Set-Cookie:
       - request_method=GET; path=/
-      X-Request-Id:
-      - 8a5d8c72-ff1b-48cb-b667-3d2a1c008a2c
-      X-Runtime:
-      - '0.021028'
-      X-Powered-By:
-      - Phusion Passenger 4.0.44
-      Date:
-      - Sat, 31 May 2014 02:46:27 GMT
-      Server:
-      - nginx/1.6.0 + Phusion Passenger 4.0.44
     body:
       encoding: UTF-8
       string: |
@@ -116,7 +112,7 @@ http_interactions:
           </binding>
           <service name="service">
             <port name="calculator_port" binding="tns:calculator_binding">
-              <soap:address location="http://192.241.246.59:3000/calculator/action"/>
+              <soap:address location="http://localhost:3000/calculator/action"/>
             </port>
           </service>
           <message name="sum">
@@ -149,10 +145,10 @@ http_interactions:
           </message>
         </definitions>
     http_version: 
-  recorded_at: Sat, 31 May 2014 02:46:29 GMT
+  recorded_at: Sat, 31 May 2014 03:04:13 GMT
 - request:
     method: post
-    uri: http://192.241.246.59:3000/calculator/action
+    uri: http://localhost:3000/calculator/action
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -173,50 +169,45 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 500
+      message: 'Internal Server Error '
     headers:
-      Content-Type:
-      - text/xml; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Status:
-      - 200 OK
       X-Frame-Options:
       - SAMEORIGIN
       X-Xss-Protection:
       - 1; mode=block
       X-Content-Type-Options:
       - nosniff
-      Etag:
-      - '"728053f9fb98178605c804866bededbc"'
+      Content-Type:
+      - text/xml; charset=utf-8
       Cache-Control:
-      - max-age=0, private, must-revalidate
+      - no-cache
+      X-Request-Id:
+      - 5171e407-a896-4734-b80b-a052d3a349e5
+      X-Runtime:
+      - '0.006273'
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.1.2/2014-05-08)
+      Date:
+      - Sat, 31 May 2014 03:04:13 GMT
+      Content-Length:
+      - '446'
+      Connection:
+      - Keep-Alive
       Set-Cookie:
       - request_method=POST; path=/
-      X-Request-Id:
-      - e13be1ac-fc7c-4541-afe0-0850a7dbfd24
-      X-Runtime:
-      - '0.012489'
-      X-Powered-By:
-      - Phusion Passenger 4.0.44
-      Date:
-      - Sat, 31 May 2014 02:46:28 GMT
-      Server:
-      - nginx/1.6.0 + Phusion Passenger 4.0.44
     body:
       encoding: UTF-8
       string: |
         <?xml version="1.0" encoding="UTF-8"?>
-        <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="urn:WashOut">
+        <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <soap:Body>
-            <tns:sum_response>
-              <value xsi:type="xsd:int">4</value>
-            </tns:sum_response>
+            <soap:Fault encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+              <faultcode xsi:type="xsd:QName">Server</faultcode>
+              <faultstring xsi:type="xsd:string">Missing required UsernameToken</faultstring>
+            </soap:Fault>
           </soap:Body>
         </soap:Envelope>
     http_version: 
-  recorded_at: Sat, 31 May 2014 02:46:29 GMT
+  recorded_at: Sat, 31 May 2014 03:04:13 GMT
 recorded_with: VCR 2.9.2

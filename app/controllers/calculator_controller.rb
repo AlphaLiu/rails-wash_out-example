@@ -1,5 +1,5 @@
 class CalculatorController < ApplicationController
-  soap_service namespace: 'urn:WashOut'
+  soap_service namespace: 'urn:WashOut', wsse_username: "test", wsse_password: "password"
 
   soap_action "sum",
     :args => {:a => :integer, :b => :integer},
